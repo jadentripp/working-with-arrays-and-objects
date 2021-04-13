@@ -1,27 +1,27 @@
-/*
-  Once you complete a problem, refresh ./for-in-delete.html in your browser and check to see if the problem's test(s) are passing.
-  Passed tests will be indicated by a green circle.
-  Failed tests will be indicated by a red X.
+// /*
+//   Once you complete a problem, refresh ./for-in-delete.html in your browser and check to see if the problem's test(s) are passing.
+//   Passed tests will be indicated by a green circle.
+//   Failed tests will be indicated by a red X.
 
-  You can refresh the page at any time to re-run all the tests.
-*/
+//   You can refresh the page at any time to re-run all the tests.
+// */
 
-/*
-  First we'll look at the difference between accessing property values in a for in loop and accessing the property name in a for in loop.
-  In the example below, we are accessing the property values. Uncomment the code below, run it and look at what prints in the console.
-*/
+// /*
+//   First we'll look at the difference between accessing property values in a for in loop and accessing the property name in a for in loop.
+//   In the example below, we are accessing the property values. Uncomment the code below, run it and look at what prints in the console.
+// */
 
-// var values = {
-//   one: 'These',
-//   two: ' are',
-//   three: ' the',
-//   four: ' property',
-//   five: ' values.'
-// } 
+var values = {
+  one: 'These',
+  two: ' are',
+  three: ' the',
+  four: ' property',
+  five: ' values.'
+} 
 
-// for(var key in values) {
-//   console.log(values[key])
-// }
+for(var key in values) {
+  console.log(values[key])
+}
 
 /*
   In this next example, we are accessing the property names themselves. Uncomment the code below, run it and look at what prints in the console.
@@ -40,8 +40,13 @@
 */
 
 function showValues( obj ) {
-  //Code Here
+  let string = ""
+  for (var key in obj){
+    string += obj[key]
+  }
+  return string
 }
+
 
 
 
@@ -54,6 +59,14 @@ function showValues( obj ) {
 */
 
 //Code Here
+function greaterThan10 (object){
+  for (let key in object){
+    if (object[key]>10){
+      object[key]=0;
+    }
+  }
+  return object
+}
 
 
 
@@ -66,7 +79,12 @@ function showValues( obj ) {
 */
 
 //Code Here
-
+function double (object){
+  for (let key in object){
+    object[key]=object[key]*2
+  }
+  return object
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -80,7 +98,15 @@ function showValues( obj ) {
 */
 
 //Code Here
-
+function secrets (object) {
+  let string = '';
+  for(let key in object) {
+    if(key.startsWith('sh')) {
+      string += object[key];
+    }
+  }
+  return string;
+}
 
 
 /* 
@@ -111,7 +137,10 @@ function showValues( obj ) {
 */
 
 //Code Here
-
+function removePassword (object){
+  delete object.password;
+  return object
+}
 
 
 ////////// PROBLEM 6 //////////
@@ -130,7 +159,11 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
+for (let key in deleteTheBigNumbers){
+  if(deleteTheBigNumbers[key]>100){
+    delete deleteTheBigNumbers[key];
+  }
+}
 
 
 ////////// PROBLEM 7 //////////
@@ -143,7 +176,14 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
+function startsWithK (object){
+  for (let key in object){
+    if (key.startsWith("k")){
+      delete object[key];
+    }
+  }
+  return object
+}
 
 
 ////////// PROBLEM 8 //////////
@@ -158,5 +198,12 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
+function hiddenTreasure (object){
+  for (let key in object){
+    if (!object[key].includes("treasure")){
+      delete object[key]
+    }
+  }
+  return object
+}
 
