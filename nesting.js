@@ -151,11 +151,12 @@ var myCar = {
 */
 
 //Code Here
-function recordCleaner (myCar){
-  for (let key in myCar.accidents) {
-    myCar.accidents[key].atFaultForAccident= false;
-  }
+function recordCleaner (){
+  for (let accident of myCar.accidents) {
+     accident.atFaultForAccident= false;
+  } 
 }
+
 
 
 ////////// PROBLEM 5 //////////
@@ -175,3 +176,20 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 
 //Code Here
 
+function looper(){
+  let result = []
+  for(arr of numsArr){
+    let temp = []
+    for (num of arr){
+      if(num%2===0){
+      temp.push('even')
+      }
+      else{
+        temp.push('odd')
+      }
+    }
+    result.push(temp)
+    
+  }
+  return result
+}

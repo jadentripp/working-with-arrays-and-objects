@@ -106,7 +106,8 @@ let myStrongest  = monstersInYourPocket.filter(function(number, index, array){
 ////////// PROBLEM 5 //////////
 
 // Do not edit code below.
-const orders = [{"price":15,"tax":0.09},
+const orders = 
+[{"price":15,"tax":0.09},
 {"price":42,"tax":0.07},
 {"price":56,"tax":0.11},
 {"price":80,"tax":0.11},
@@ -122,11 +123,11 @@ const orders = [{"price":15,"tax":0.09},
   Use a higher order method to get all the order totals after adding in the sales tax (given to you as a tax rate, hint: you'll need to do some multiplication). Your answer should be an array of numbers, one total for each order.
 */
 
-let orderTotals = function total (){
+let Totals = function(){
 		return orders.map(order => order.price * (order.tax +1))
 	}
 
-total()
+let orderTotals= Totals()
 
 
 ////////// PROBLEM 6 //////////
@@ -145,9 +146,12 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-let bobsTotal = function sum (){
-  return purchases.reduce(arr, curr, arr){
-
+let totalPurchases3= function(){
+  let bobsPurchases = purchases.filter(purchase => purchase.owner==="Bob");
+  let totalPurchases= bobsPurchases.reduce((acc, curr)=>{
+   return acc+=curr.price;
+  },0)
+  return totalPurchases;
   }
-}
 
+let bobsTotal = totalPurchases3();
